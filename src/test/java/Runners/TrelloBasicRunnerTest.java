@@ -14,6 +14,6 @@ import org.junit.runner.RunWith;
         glue = {"steps"},
         features = {"src/test/resources/features/"}
 )
-public class TrelloBasicRunner {
+public class TrelloBasicRunnerTest {
 
 }
