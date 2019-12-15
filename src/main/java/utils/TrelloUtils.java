@@ -2,29 +2,27 @@ package utils;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.http.ContentType.JSON;
 
-public class TrelloRequests {
-    private String key="c7bd875d5f1fc702cf5c58cfcc435e68";
-    private String token="3788db4d958244c0ec2feaeda716ba79046f1bb9861072285311c439b87fe909";
+public class TrelloUtils {
     public static RequestSpecification request;
 
-    public TrelloRequests(){
+    public TrelloUtils(){
         RequestSpecBuilder builder=new RequestSpecBuilder();
         builder.setBaseUri("https://api.trello.com/1");
-        builder.addQueryParam("key",this.key);
-        builder.addQueryParam("token",this.token);
-        request=RestAssured.given().spec(builder.build());
+//        builder.addQueryParam("key",TrelloCredentials.getKey());
+//        builder.addQueryParam("token",TrelloCredentials.getToken());
+        builder.addQueryParam("key","ADD YOUR KEY");
+        builder.addQueryParam("token","ADD YOUR TOKEN");
+        request= RestAssured.given().spec(builder.build());
     }
 
     public Response getBoardDetails(String boardId){

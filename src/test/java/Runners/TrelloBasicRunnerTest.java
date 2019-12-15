@@ -6,13 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"progress",
-                "html:build/report/html",
-                "junit:build/report/junit/cucumber-report.xml",
-                "json:build/report/json/cucumber-report.json"
-        },
+//        plugin = {"pretty", "html:target/cucumber"},
+        plugin = { "de.monochromata.cucumber.report.PrettyReports:target/cucumber" },
         glue = {"steps"},
-        features = {"src/test/resources/features/"}
+        features = {"src/test/resources/features/"},
+        tags = "not @Sanity"
 )
 public class TrelloBasicRunnerTest {
 
